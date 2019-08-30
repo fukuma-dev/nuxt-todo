@@ -1,5 +1,5 @@
-import pkg from './package'
-
+const pkg = './package'
+const webpack = require('webpack')
 export default {
   mode: 'spa',
 
@@ -50,6 +50,11 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '_': 'lodash'
+      })
+    ]
   }
 }
